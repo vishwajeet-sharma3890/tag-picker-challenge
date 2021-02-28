@@ -6,7 +6,8 @@ export default function Input({
   handleChange,
   type = "text",
   value,
-  onCloseClicked
+  onCloseClicked,
+  onFocusGained,
 }: InputProps) {
   return (
     <div className="input-container">
@@ -15,6 +16,7 @@ export default function Input({
         onChange={(e) => handleChange(e.target.value)}
         type={type}
         value={value}
+        onFocus={onFocusGained}
       />
       <img
         className="input-container__close"
