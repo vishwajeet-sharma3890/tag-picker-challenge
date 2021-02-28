@@ -1,11 +1,10 @@
 import "./styles.scss";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import Loader from "../../atoms/Loader";
 import { TagsSectionProps } from "./types";
 import { fetchTags } from "../../../../src/api";
 import Card from "../../atoms/Card";
 import SectionHeader from "../../atoms/SectionHeader";
-import { UserContext } from "../../../contexts/UserContext/context";
 import { TagData } from "../../../contexts/UserContext/types";
 import Tags from "../../molecules/Tags";
 
@@ -14,9 +13,6 @@ import Tags from "../../molecules/Tags";
  * @param userId (User Id of the user who's tags are being displayed)
  */
 export default function TagsSection({ tagIds }: TagsSectionProps) {
-  // Contexts
-  const { user } = useContext(UserContext);
-
   // States
   const [userTags, setUserTags] = useState<TagData[] | null>(null);
   const [allTags, setAllTags] = useState<TagData[]>([]);
@@ -56,7 +52,6 @@ export default function TagsSection({ tagIds }: TagsSectionProps) {
     if (userTags) {
       updatedUserTags.push(...userTags);
       updatedUserTags.push(tag);
-      console.log(updatedUserTags);
     }
     setUserTags(updatedUserTags);
   };

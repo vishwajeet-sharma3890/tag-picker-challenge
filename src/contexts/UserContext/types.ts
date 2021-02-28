@@ -1,4 +1,4 @@
-import { ReactChildren } from "react";
+import { ReactChild } from "react";
 
 /**
  * Interface for defining Profile data
@@ -23,7 +23,7 @@ export interface TagData {
  * Interface for defining props to user context
  */
 export interface UserContextProps {
-  children: ReactChildren;
+  children: ReactChild;
 }
 
 /**

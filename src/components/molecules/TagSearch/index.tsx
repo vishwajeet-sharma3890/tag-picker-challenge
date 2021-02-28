@@ -64,7 +64,6 @@ export default function TagSearch({
   const addTag = () => {
     onCloseClicked();
     createTag({ title: searchedTag }).then((data: TagData) => {
-      console.log(data);
       addUserTag(data);
     });
   };

@@ -9,7 +9,7 @@ import "./styles.scss";
 export default function App() {
   return (
     <UserProvider>
-      <UserContext.Consumer>{(user) => <ProfilePage />}</UserContext.Consumer>
+      <UserContext.Consumer>{() => <ProfilePage />}</UserContext.Consumer>
     </UserProvider>
   );
 }
