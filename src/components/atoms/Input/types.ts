@@ -1,7 +1,8 @@
 export interface InputProps {
   name: string;
   disabled?: boolean;
-  type: string;
+  type?: string;
   value: string;
   handleChange(value: string): void;
+  onCloseClicked(): void;
 }

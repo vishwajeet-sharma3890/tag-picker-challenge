@@ -1,8 +1,25 @@
+import ProfileSection from "../../organisms/ProfileSection";
+import TagsSection from "../../organisms/TagsSection";
+import Loader from "../../atoms/Loader";
+import { useContext } from "react";
+import { UserContext } from "../../../contexts/UserContext/context";
+
+/**
+ * Component to show Profile page
+ */
 export default function ProfilePage() {
+  // User Context to display data
+  const { user } = useContext(UserContext);
   return (
-    <div>
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+    <>
+      {user ? (
+        <>
+          <ProfileSection {...user} />
+          <TagsSection tagIds={user.tags} />
+        </>
+      ) : (
+        <Loader />
+      )}
+    </>
   );
 }

@@ -1,7 +1,9 @@
+import "./styles.scss";
 import { ProfilePictureProps } from "./types";
 
-export const ProfilePicture: React.FC<ProfilePictureProps> = ({
-  imageAlt,
-  imageUrl
-}) => <img src={imageUrl} alt={imageAlt} />;
-export default ProfilePicture;
+export default function ProfilePicture({
+  imageUrl,
+  imageAlt
+}: ProfilePictureProps) {
+  return <img src={imageUrl} alt={imageAlt} />;
+}
