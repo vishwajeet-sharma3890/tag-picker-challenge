@@ -1,5 +1,5 @@
 .tag {
-  padding: 2px 16px;
+  padding: 2px 8px 2px 16px;
   width: auto;
   height: 20px;
   border-radius: 1rem;
@@ -22,12 +22,12 @@
   &__cross {
     opacity: 0;
     transition: all 0.35s ease-in-out;
-    margin-left: 0;
+    margin-left: 0rem;
     transform: rotate(-45deg);
 
     &__visible {
       opacity: 1;
-      margin-left: 0.5rem;
+      margin-left: 0.25rem;
       transform: rotate(0deg);
       transition: all 0.35s ease-in-out;
     }
