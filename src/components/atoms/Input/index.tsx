@@ -8,7 +8,14 @@ export default function Input({
   value,
   onCloseClicked,
   onFocusGained,
+  onEnterPressed
 }: InputProps) {
+  const handleKeyPressed = (e) => {
+    if (e.key === "Enter") {
+      onEnterPressed();
+    }
+  };
+
   return (
     <div className="input-container">
       <input
@@ -17,6 +24,7 @@ export default function Input({
         type={type}
         value={value}
         onFocus={onFocusGained}
+        onKeyPress={handleKeyPressed}
       />
       <img
         className="input-container__close"

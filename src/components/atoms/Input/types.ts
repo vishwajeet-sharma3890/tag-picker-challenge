@@ -5,5 +5,6 @@ export interface InputProps {
   value: string;
   handleChange(value: string): void;
   onFocusGained(): void;
+  onEnterPressed(): void;
   onCloseClicked(): void;
 }

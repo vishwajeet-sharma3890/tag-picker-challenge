@@ -70,6 +70,7 @@ export default function TagSearch({ tags, onCloseClicked }: TagSearchProps) {
         value={searchedTag}
         handleChange={handleChange}
         onCloseClicked={onCloseClicked}
+        onEnterPressed={addTag}
         onFocusGained={() => setShowDropDown(Boolean(searchedTag))}
       />
       {showDropDown && (
