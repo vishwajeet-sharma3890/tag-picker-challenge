@@ -4,5 +4,5 @@ export interface TagDropDownProps {
   tags: TagData[];
   closeDropDown: () => void;
   addTag: () => void;
-  addUserTag: (tagId: string) => void;
+  addUserTag: (tag: TagData) => void;
 }

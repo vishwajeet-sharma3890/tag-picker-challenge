@@ -20,6 +20,7 @@ export default function Input({
     <div className="input-container">
       <input
         name={name}
+        autoFocus
         onChange={(e) => handleChange(e.target.value)}
         type={type}
         value={value}

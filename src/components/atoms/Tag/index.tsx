@@ -4,23 +4,24 @@ import "./styles.scss";
 import { TagProps } from "./types";
 import { removeUserTag } from "../../../../src/api";
 
-export default function Tag({ tagData }: TagProps) {
+export default function Tag({ tagData, onTagRemoved }: TagProps) {
   // User Context
-  const { user, refreshUser, loading } = useContext(UserContext);
+  const { user, refreshUser } = useContext(UserContext);
 
   // Show cross
   const [showCross, setShowCross] = useState(false);
 
   // Function to remove tag
   const handleRemoveUserTag = () => {
-    if (user && !loading) {
+    if (user) {
+      onTagRemoved(tagData.uuid);
       removeUserTag(user.uuid, tagData.uuid).then(refreshUser);
     }
   };
 
   return (
     <div
-      className={`tag tag__${loading ? "disabled" : ""}`}
+      className="tag"
       style={{ background: tagData.color }}
       onMouseEnter={() => setShowCross(true)}
       onMouseLeave={() => setShowCross(false)}

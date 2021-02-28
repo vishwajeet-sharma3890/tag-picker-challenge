@@ -8,7 +8,11 @@ import { UserContext } from "../../../contexts/UserContext/context";
 import { createTag, assignUserTag } from "../../../../src/api";
 import { TagData } from "../../../contexts/UserContext/types";
 
-export default function TagSearch({ tags, onCloseClicked }: TagSearchProps) {
+export default function TagSearch({
+  tags,
+  onTagAdded,
+  onCloseClicked
+}: TagSearchProps) {
   // User Context
   const { user, refreshUser } = useContext(UserContext);
 
@@ -47,11 +51,12 @@ export default function TagSearch({ tags, onCloseClicked }: TagSearchProps) {
   };
 
   // Function to add tag to user
-  const addUserTag = (tagId: string) => {
+  const addUserTag = (tag: TagData) => {
     onCloseClicked();
+    onTagAdded(tag);
     // TODO: Handle failure
     if (user) {
-      assignUserTag(user.uuid, tagId).then(handleUserTagAdded);
+      assignUserTag(user.uuid, tag.uuid).then(handleUserTagAdded);
     }
   };
 
@@ -59,7 +64,8 @@ export default function TagSearch({ tags, onCloseClicked }: TagSearchProps) {
   const addTag = () => {
     onCloseClicked();
     createTag({ title: searchedTag }).then((data: TagData) => {
-      addUserTag(data.uuid);
+      console.log(data);
+      addUserTag(data);
     });
   };
 

@@ -35,7 +35,7 @@ export default function TagDropDown({
     <ul className="tag-dropdown" ref={elementRef}>
       {tags.map((tag, index) => (
         <DropDownOption
-          onClick={() => addUserTag(tag.uuid)}
+          onClick={() => addUserTag(tag)}
           key={`TagDropDown${index}`}
         >
           {tag.title}

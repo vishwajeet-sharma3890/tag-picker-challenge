@@ -5,9 +5,9 @@ import { TagsSectionProps } from "./types";
 import { fetchTags } from "../../../../src/api";
 import Card from "../../atoms/Card";
 import SectionHeader from "../../atoms/SectionHeader";
-import TagPicker from "../TagPicker";
 import { UserContext } from "../../../contexts/UserContext/context";
 import { TagData } from "../../../contexts/UserContext/types";
+import Tags from "../../molecules/Tags";
 
 /**
  * Component to show Tags, where user can view/add/edit user tags
@@ -34,24 +34,44 @@ export default function TagsSection({ tagIds }: TagsSectionProps) {
     setUserTags(userTagsObtained);
   };
 
-  // Function to refresh tags
-  const refreshTags = () => {
-    fetchTags().then(handleSuccess);
-  };
-
   // Fetching profile data
   useEffect(() => {
-    if (!userTags || (user && userTags.length !== user.tags.length)) {
-      refreshTags();
+    if (!userTags) {
+      fetchTags().then(handleSuccess);
     }
   });
+
+  const onTagRemoved = (tagId: string) => {
+    let updatedUserTags: TagData[] = [];
+    if (userTags) {
+      updatedUserTags = userTags.filter((userTag) => {
+        return userTag.uuid !== tagId;
+      });
+    }
+    setUserTags(updatedUserTags);
+  };
+
+  const onTagAdded = (tag: TagData) => {
+    let updatedUserTags: TagData[] = [];
+    if (userTags) {
+      updatedUserTags.push(...userTags);
+      updatedUserTags.push(tag);
+      console.log(updatedUserTags);
+    }
+    setUserTags(updatedUserTags);
+  };
 
   return (
     <div className="tag-section">
       <Card>
         <SectionHeader>Tags</SectionHeader>
         {userTags ? (
-          <TagPicker allTags={allTags} userTags={userTags} />
+          <Tags
+            allTags={allTags}
+            userTags={userTags}
+            onTagAdded={onTagAdded}
+            onTagRemoved={onTagRemoved}
+          />
         ) : (
           <Loader />
         )}

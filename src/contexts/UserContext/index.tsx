@@ -31,7 +31,6 @@ export default class UserProvider extends Component<
     // TODO: Handle failure
     fetchUser(userId).then((user: ProfileData) => {
       this.setState({ user, loading: false });
-      this.forceUpdate();
     });
   };
 
