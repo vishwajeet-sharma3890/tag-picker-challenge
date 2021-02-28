@@ -1,0 +1,63 @@
+.add-tag-button-container {
+  
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+
+  &__button {
+
+    background-color: #F1F1F7;
+    border: none;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(45deg);
+
+    &__small {
+      height: 1.2rem;
+      width: 1.2rem;
+    }
+
+    &__medium {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+
+    &__large {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+
+    img {
+      height: 14px;
+      width: 14px;
+    }
+
+    &:hover {
+      background-color: #F5F1FF;
+      transition: all 0.3s ease-in-out;
+    }
+
+  }
+
+  &__label {
+
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    margin-left: 0;
+    font-family: 'Montserrat', sans-serif;
+
+    &__visible {
+      opacity: 1;
+      margin-left: 0.5rem;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}

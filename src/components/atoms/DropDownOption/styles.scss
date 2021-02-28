@@ -1,0 +1,13 @@
+li {
+
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+
+  &:hover {
+    background-color: #F5F1FF;
+  }
+}

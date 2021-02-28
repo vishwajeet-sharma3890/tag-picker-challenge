@@ -1,0 +1,16 @@
+.tag-dropdown {
+  background-color: #fff;
+  border: 1px solid #967CE2;
+  border-radius: 12px;
+  list-style-type: none;
+  padding: 4px;
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  min-width: 182px;
+
+  &:hover {
+    border: 1px solid #755BCF;
+  }
+
+}
